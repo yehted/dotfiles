@@ -26,6 +26,7 @@ filetype plugin indent on    " required
 " ------------------------------------------------------
 " Start NERDTree
 autocmd vimenter * NERDTree
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Don't fold things on open
 set foldlevel=99
