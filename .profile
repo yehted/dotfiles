@@ -15,12 +15,26 @@ export ERROR_LOG_LEVEL=DEBUG
 export LOG_STDOUT=True
 export CLICOLOR=1
 # export TERM=xterm-256color
+export AWS_SECRET_ACCESS_KEY=
+export AWS_ACCESS_KEY_ID=
+export NPM_AUTH_TOKEN=
+
+# NVM
+export NVM_DIR="/home/vagrant/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# export PATH=~/.npm-global/bin:$PATH
+
+# PyEnv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Nix variables
-export NIX_PATH=$HOME/.nix-profile/nix-expressions 
+# export NIX_PATH=$HOME/.nix-profile/nix-expressions
+export NIX_PATH="nsnix=$HOME/repos/ns_systems/ns_nix/"
 export PATH=$HOME/.nix-profile/bin:$PATH
 export NIX_DIRECTORY=/opt/ns
-export NS_GITHUB_TOKEN=6dc93ff82c15b80b744466a103baac6be9fa2775
+export NS_GITHUB_TOKEN=
 export PIPELINE_ID=1
 export NSNIX=~/repos/ns_systems/ns_nix
 
@@ -28,7 +42,7 @@ export NSNIX=~/repos/ns_systems/ns_nix
 alias rm='rm -i'
 alias act='source ./vendor/python/bin/activate'
 alias greppy='grep -r --include "*\.py" '
-alias act_quill='source /home/vagrant/repos/ns_services/quill_development_toolkit/cli_v2/vendor/python/bin/activate' 
+alias act_quill='source /home/vagrant/repos/ns_services/quill_development_toolkit/cli_v2/vendor/python/bin/activate'
 alias tmux="TERM=screen-256color-bce tmux"
 function explore() {
     ~/repos/ns_data/ns_data/vendor/python/bin/python ~/repos/ns_data/ns_data/src/data/util/explore_object.py $1
