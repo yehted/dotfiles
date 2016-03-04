@@ -15,8 +15,10 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead
 " of Plugin)
 Plugin 'scrooloose/nerdtree'
-" Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'ctrlpvim/ctrlp.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -38,10 +40,10 @@ set number
 set mouse=a
 
 " Color scheme
-set t_Co=256
+" set t_Co=256
 " let g:solarized_termcolors=256
-colorscheme blackboard
 set background=dark
+colorscheme solarized
 " let g:molokai_original=1
 " let g:rehash256 = 1
 
