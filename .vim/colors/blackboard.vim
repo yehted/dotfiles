@@ -1,106 +1,182 @@
-" Vim color scheme
-" Name:         blackboard.vim
-" Maintainer:   ratazzi.potts <ratazzi.potts@gmail.com> 
-" Link:         http://www.ratazzi.org
+" blackboard color scheme
 
-:set background=dark
-highlight clear
-if version > 580
-    hi clear
-    if exists("syntax_on")
-        syntax reset
-    endif
+
+" ********************************************************************************
+" The following are the preferred 16 colors for your terminal
+"           Colors      Bright Colors
+" Black     #0C1021     #14192A
+" Red       #9D1E15     #AB2A1D
+" Green     #61CE3C     #6DEB42
+" Yellow    #FBDE2D     #D8FA3C
+" Blue      #8DA6CE     #253B76
+" Magenta   #FF6400     #FF9332
+" Cyan      #B9B4FD     #AEAEAE
+" White     #F2F2F2     #FFFFFF
+" ********************************************************************************
+"
+set background=dark
+hi clear
+
+if exists("syntax_on")
+  syntax reset
 endif
-let g:colors_name = 'blackboard'
 
-if has('gui_running')
-    hi Normal guifg=#eeeeee guibg=#090B18
-    "hi Normal guifg=#eeeeee guibg=#000000
-    hi Cursor guifg=Black guibg=Yellow
+let colors_name = "blackboard"
 
-    hi LineNr guifg=#333333 ctermfg=236
-    "hi LineNr guibg=#323232 guifg=#888888
-    hi VertSplit guibg=#c2bfa5 guifg=grey40 gui=none ctermfg=241
-    hi Folded guibg=black guifg=grey40 ctermfg=241
-    hi FoldColumn guibg=black guifg=grey20 ctermfg=236
-    hi IncSearch guibg=black guifg=yellow 
-    hi ModeMsg guifg=goldenrod
-    hi MoreMsg guifg=SeaGreen
-    hi NonText guifg=RoyalBlue guibg=#151825 ctermfg=234
-    hi Question guifg=springgreen
-    hi Search guibg=#0099ff guifg=White
-    hi Visual gui=none guifg=khaki guibg=olivedrab
+" General colors
+hi Normal               ctermfg=7           ctermbg=NONE        cterm=NONE
+hi NonText              ctermfg=0           ctermbg=NONE        cterm=NONE
 
-    hi SpecialKey guifg=#cbfe29 ctermfg=190
-    hi Title guifg=#ff9900 gui=bold ctermfg=208 cterm=bold
-    hi Statement guifg=#ff6600 ctermfg=202
-    hi htmlStatement guifg=#61c3fe ctermfg=39
-    hi String guifg=#99ec5c ctermfg=155
-    hi Comment guifg=grey35 ctermfg=240
-    hi CommentDoc guifg=grey50 ctermfg=244
-    hi Conditional guifg=#ffee14 ctermfg=226
-    hi Constant guifg=#cbfe29 ctermfg=190
-    hi Special guifg=#86A7D0 ctermfg=110
-    hi Identifier guifg=#ff9900 gui=bold ctermfg=208 cterm=bold
-    hi Include guifg=#ffde00 ctermfg=220
-    hi PreProc guifg=grey ctermfg=grey
-    hi Operator gui=bold guifg=#ff9900 ctermfg=208 cterm=bold
-    hi Define guifg=#ffde00 gui=bold ctermfg=220 cterm=bold
-    hi Type guifg=#61c3fe ctermfg=39
-    hi Function guifg=#ffde00 gui=NONE ctermfg=220
-    hi Structure gui=bold guifg=#ff6600 ctermfg=202 cterm=bold
+hi Cursor               ctermfg=0           ctermbg=7           cterm=reverse
+hi LineNr               ctermfg=12          ctermbg=8           cterm=NONE
+hi VertSplit            ctermfg=4           ctermbg=NONE        cterm=NONE
+hi StatusLine           ctermfg=4           ctermbg=8           cterm=NONE
+hi StatusLineNC         ctermfg=12          ctermbg=8           cterm=NONE
 
-    hi Ignore guifg=grey40 ctermfg=241
-    hi StatusLineNC guibg=#c2bfa5 guifg=grey40 gui=none ctermfg=241
-    hi StatusLine guibg=#c2bfa5 guifg=black gui=bold
-    hi Todo guifg=orangered guibg=yellow2
-    hi WarningMsg guifg=#990000 ctermfg=88
-    hi ErrorMsg guifg=#990000 guibg=#ffeaea ctermfg=88 ctermbg=224
-    hi Error guifg=#990000 guibg=#ffeaea ctermfg=88 ctermbg=224
-    hi SpellErrors guifg=White guibg=Red
-else
-    hi Normal guifg=#eeeeee guibg=#090B18
-    "hi Normal guifg=#eeeeee guibg=#000000
-    hi Cursor guifg=Black guibg=Yellow
+hi Folded               ctermfg=4           ctermbg=NONE        cterm=NONE
+hi Title                ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi Visual               ctermfg=NONE        ctermbg=12          cterm=NONE
+hi VisualNOS            ctermfg=16          ctermbg=8           cterm=NONE
 
-    hi LineNr guifg=#333333 ctermfg=236
-    "hi LineNr guibg=#323232 guifg=#888888
-    hi VertSplit guibg=#c2bfa5 guifg=grey40 gui=none ctermfg=241
-    hi Folded guibg=black guifg=grey40 ctermfg=241
-    hi FoldColumn guibg=black guifg=grey20 ctermfg=236
-    hi IncSearch guibg=black guifg=yellow 
-    hi ModeMsg guifg=goldenrod
-    hi MoreMsg guifg=SeaGreen
-    hi NonText guifg=RoyalBlue guibg=#151825 ctermfg=234
-    hi Question guifg=springgreen
-    hi Search guibg=#0099ff guifg=White
-    hi Visual gui=none guifg=khaki guibg=olivedrab
+hi SpecialKey           ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
-    hi SpecialKey guifg=#cbfe29 ctermfg=190
-    hi Title guifg=#ff9900 gui=bold ctermfg=208 cterm=bold
-    hi Statement guifg=#ff6600 ctermfg=202
-    hi htmlStatement guifg=#61c3fe ctermfg=39
-    hi String guifg=#99ec5c ctermfg=155
-    hi Comment guifg=grey35 ctermfg=240
-    hi CommentDoc guifg=grey50 ctermfg=244
-    hi Conditional guifg=#ffee14 ctermfg=226
-    hi Constant guifg=#cbfe29 ctermfg=190
-    hi Special guifg=#86A7D0 ctermfg=110
-    hi Identifier guifg=#ff9900 gui=bold ctermfg=208 cterm=bold
-    hi Include guifg=#ffde00 ctermfg=220
-    hi PreProc guifg=grey ctermfg=grey
-    hi Operator gui=bold guifg=#ff9900 ctermfg=208 cterm=bold
-    hi Define guifg=#ffde00 gui=bold ctermfg=220 cterm=bold
-    hi Type guifg=#61c3fe ctermfg=39
-    hi Function guifg=#ffde00 gui=NONE ctermfg=220
-    hi Structure gui=bold guifg=#ff6600 ctermfg=202 cterm=bold
+hi WildMenu             ctermfg=black       ctermbg=yellow      cterm=NONE
+hi PmenuSbar            ctermfg=black       ctermbg=white       cterm=NONE
+"hi Ignore              ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
-    hi Ignore guifg=grey40 ctermfg=241
-    hi StatusLineNC guibg=#c2bfa5 guifg=grey40 gui=none ctermfg=241
-    hi StatusLine guibg=#c2bfa5 guifg=black gui=bold
-    hi Todo guifg=orangered guibg=yellow2
-    hi WarningMsg guifg=#990000 ctermfg=88
-    hi ErrorMsg guifg=#990000 guibg=#ffeaea ctermfg=88 ctermbg=224
-    hi Error guifg=#990000 guibg=#ffeaea ctermfg=88 ctermbg=224
-    hi SpellErrors guifg=White guibg=Red
+hi Error                ctermfg=NONE        ctermbg=1           cterm=NONE
+hi ErrorMsg             ctermfg=NONE        ctermbg=1           cterm=NONE
+hi WarningMsg           ctermfg=NONE        ctermbg=5           cterm=NONE
+
+" Message displayed in lower left, such as --INSERT--
+hi ModeMsg              ctermfg=4           ctermbg=NONE        cterm=NONE
+
+if version >= 700 " Vim 7.x specific colors
+  hi CursorLine         ctermfg=NONE        ctermbg=8           cterm=NONE
+  hi CursorColumn       ctermfg=NONE        ctermbg=NONE        cterm=NONE
+  hi ColorColumn        ctermfg=NONE        ctermbg=8           cterm=NONE
+  hi TabLine            ctermfg=12          ctermbg=NONE        cterm=NONE
+  hi TabLineFill        ctermfg=NONE        ctermbg=NONE        cterm=NONE
+  hi TabLineSel         ctermfg=NONE        ctermbg=NONE        cterm=BOLD
+  hi MatchParen         ctermfg=61          ctermbg=255         cterm=NONE
+  hi Pmenu              ctermfg=NONE        ctermbg=NONE        cterm=NONE
+  hi PmenuSel           ctermfg=black       ctermbg=yellow      cterm=NONE
+  hi Search             ctermfg=black       ctermbg=yellow      cterm=NONE
 endif
+
+" Syntax highlighting
+hi Comment              ctermfg=14          ctermbg=NONE        cterm=NONE
+hi String               ctermfg=2           ctermbg=NONE        cterm=NONE
+hi Number               ctermfg=11          ctermbg=NONE        cterm=NONE
+
+hi Keyword              ctermfg=4           ctermbg=NONE        cterm=NONE
+hi PreProc              ctermfg=4           ctermbg=NONE        cterm=NONE
+
+hi Todo                 ctermfg=5           ctermbg=NONE        cterm=bold
+hi Constant             ctermfg=11          ctermbg=NONE        cterm=NONE
+
+hi Identifier           ctermfg=4           ctermbg=NONE        cterm=NONE
+hi Function             ctermfg=3           ctermbg=NONE        cterm=NONE
+hi Class                ctermfg=5           ctermbg=NONE        cterm=bold
+hi Type                 ctermfg=4           ctermbg=NONE        cterm=NONE
+
+hi Special              ctermfg=5         ctermbg=NONE        cterm=NONE
+hi Delimiter            ctermfg=7         ctermbg=NONE        cterm=NONE
+"hi Operator                              ctermfg=black       ctermbg=NONE        cterm=NONE
+
+hi Blue    ctermfg=4  cterm=none
+hi Green   ctermfg=2  cterm=none
+hi Grey    ctermfg=14 cterm=none
+hi Orange  ctermfg=5  cterm=none
+hi Red     ctermfg=1  cterm=none
+hi BRed    ctermfg=9  cterm=none
+hi White   ctermfg=7  cterm=none
+hi Yellow  ctermfg=11 cterm=none
+hi Gold    ctermfg=3  cterm=none
+hi Purple  ctermfg=6  cterm=none
+
+hi link Character       Constant
+hi link Conditional     Keyword
+hi link Statement       Keyword
+hi link Boolean         Constant
+hi link Float           Number
+hi link Repeat          Statement
+hi link Label           Statement
+hi link Exception       Statement
+hi link Include         PreProc
+hi link Define          PreProc
+hi link Macro           PreProc
+hi link PreCondit       PreProc
+hi link StorageClass    Type
+hi link Structure       Type
+hi link Typedef         Type
+"hi link Tag             Special
+hi link SpecialChar     Special
+hi link SpecialComment  Special
+hi link Debug           Special
+
+
+" Special for Ruby
+"hi link rubyControl                Keyword    " when
+"hi link rubyDefine                 Keyword
+"hi link rubyAttribute              Keyword
+"hi link rubyModule                 Keyword    " module
+hi link rubyClass                   Gold       " class
+hi link rubyDefine                  Gold       " def
+hi link rubyFunction                Orange     " function_name
+hi link rubyInstanceVariable        Purple     " @var
+hi link rubyConditional             Gold       " if
+hi link rubyInclude                 Gold       " include
+hi link rubyKeyword                 Gold       " super, return
+hi link rubyRailsUserClass          Blue       " SomethingsController
+hi link rubyRailsFilterMethod       Blue       " before_filter
+hi link rubyRailsRenderMethod       Blue       " respond_to
+hi link rubyRailsARClassMethod      Blue       " attr_accessible
+hi link rubyRailsARValidationMethod Blue       " attr_accessible
+"hi link rubyKeyword           Keyword    " yield, super
+"hi link rubyAccess            Keyword    " private
+"hi link rubyEval              Special    " eval
+"hi link rubyMethod            Keyword    " def
+"hi link rubyIdentifier        Identifier " |var|
+"hi link rubyInstanceVariable  Identifier " @var
+"hi link rubyGlobalVariable    Identifier " $var
+"hi link rubyClassVariable     Identifier " @@var
+"hi link rubyPseudoVariable    Identifier " self, nil
+
+hi link lessVariable          Keyword
+
+" Special for XML
+hi link xmlTagName      Keyword
+hi link xmlTag          Identifier
+hi link xmlEndTag       Identifier
+
+"" Special for HTML
+hi link htmlTagName        Keyword
+hi link htmlSpecialTagName Special
+hi link htmlTag            Identifier
+hi link htmlEndTag         Identifier
+hi link htmlArg            Keyword
+hi link htmlLink           Normal
+hi link javaScript         Normal
+
+"" Special for Javascript
+hi link javaScriptNumber         Number
+hi link javaScriptPrototype      Identifier " prototype
+hi link javaScriptSource         Keyword " import export
+hi link javaScriptType           Identifier " const this undefined var void yield
+hi link javaScriptOperator       Keyword " delete new in instanceof let typeof
+hi link javaScriptBoolean        Keyword " true false
+hi link javaScriptNull           Keyword " null
+hi link javaScriptConditional    Keyword " if else
+hi link javaScriptRepeat         Keyword " do while for
+hi link javaScriptBranch         Keyword " break continue switch case default return
+hi link javaScriptStatement      Keyword " try catch throw with finally
+hi link javaScriptGlobalObjects  Keyword " Array Boolean Date Function Infinity JavaArray JavaClass JavaObject JavaPackage Math Number NaN Object Packages RegExp String Undefined java netscape sun
+hi shCommandSub		ctermfg=white
+
+"" Sepcial for CSS
+hi link cssProp            Keyword
+hi link cssIdentifier      Special
+hi link cssClassName       Special
+hi link cssTagName         Special
+hi link cssBraces          Normal

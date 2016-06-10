@@ -1,3 +1,10 @@
+if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 " Vundle required configuration
 set nocompatible              " required
 filetype off                  " required
@@ -17,8 +24,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'ctrlpvim/ctrlp.vim'
-
+Plugin 'elzr/vim-json'
+Plugin 'henrik/vim-indexed-search'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -29,26 +38,30 @@ filetype plugin indent on    " required
 " Start NERDTree
 autocmd vimenter * NERDTree
 autocmd BufWritePre * :%s/\s\+$//e
+let NERDTreeIgnore = ['\.pyc$']
 
+set term=xterm-256color
 " Don't fold things on open
 set foldlevel=99
 
 " Turn on line numbers
 set number
+set relativenumber
 
 " Turn on mouse
 set mouse=a
 
-" Color scheme
-" set t_Co=256
-" let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
-" let g:molokai_original=1
-" let g:rehash256 = 1
-
 " Syntax highlighting
 syntax enable
+
+" Color scheme
+set t_Co=256
+" let g:solarized_termcolors=256
+" colorscheme Tomorrow-Night-Eighties
+colorscheme onedark
+set background=dark
+" let g:molokai_original=1
+" let g:rehash256 = 1
 
 " Spaces and tabs
 set tabstop=4
@@ -60,6 +73,8 @@ set autoindent
 set shiftround
 set fileformat=unix
 set backspace=indent,eol,start
+set list
+set listchars=tab:>.
 
 " UI config
 set cursorline
@@ -69,3 +84,5 @@ set colorcolumn=80
 set incsearch
 set hlsearch
 
+" Key remaps
+nmap Y y$
