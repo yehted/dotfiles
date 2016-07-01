@@ -28,6 +28,10 @@ Plugin 'elzr/vim-json'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,6 +43,10 @@ filetype plugin indent on    " required
 autocmd vimenter * NERDTree
 autocmd BufWritePre * :%s/\s\+$//e
 let NERDTreeIgnore = ['\.pyc$']
+
+" vim airline
+set laststatus=2
+let g:airline_theme='onedark'
 
 set term=xterm-256color
 " Don't fold things on open

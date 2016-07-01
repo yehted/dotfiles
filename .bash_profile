@@ -28,15 +28,18 @@ export NPM_AUTH_TOKEN=
 
 # Nix variables
 # export NIX_PATH=$HOME/.nix-profile/nix-expressions
-export NIX_PATH="nsnix=$HOME/repos/ns_systems/ns_nix/"
+export NIX_PATH="nsnix=$HOME/repos/quill/ns_nix/"
 export PATH=$HOME/.nix-profile/bin:$PATH
 export NIX_DIRECTORY=/opt/ns
 export NS_GITHUB_TOKEN=
 export PIPELINE_ID=1
-export NSNIX=~/repos/ns_systems/ns_nix
+export NSNIX=$HOME/repos/quill/ns_nix
+export NIX_REPO_SSH=nix.n-s.us
+export NSROOT=$HOME/repos
 
 # Colors
-export PS1="\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export PS1='\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\[\033[31m\]$(__git_ps1 " (%s)")\[\033[m\]\$ '
+# export LS_COLORS=GxFxCxDxBxegedabagaced
 
 export PATH
 
