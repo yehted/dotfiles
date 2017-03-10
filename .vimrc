@@ -22,7 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead
 " of Plugin)
 Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'elzr/vim-json'
 Plugin 'henrik/vim-indexed-search'
@@ -46,15 +46,14 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " vim airline
 set laststatus=2
-let g:airline_theme='onedark'
+let g:airline_theme='solarized'
 
-set term=xterm-256color
+" set term=xterm-256color
 " Don't fold things on open
 set foldlevel=99
 
 " Turn on line numbers
 set number
-set relativenumber
 
 " Turn on mouse
 set mouse=a
@@ -63,11 +62,11 @@ set mouse=a
 syntax enable
 
 " Color scheme
-set t_Co=256
+" set t_Co=256
 " let g:solarized_termcolors=256
 " colorscheme Tomorrow-Night-Eighties
-colorscheme onedark
 set background=dark
+colorscheme solarized
 " let g:molokai_original=1
 " let g:rehash256 = 1
 
@@ -94,3 +93,4 @@ set hlsearch
 
 " Key remaps
 nmap Y y$
+nmap <silent> <C-n> :NERDTreeToggle<CR>
