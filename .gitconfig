@@ -1,0 +1,10 @@
+[user]
+	name = Ted Yeh
+	email = yeh.ted@gmail.com
+[push]
+	default = current
+[color]
+	ui = auto
+	status = auto
+	branch = auto
+	diff = auto
