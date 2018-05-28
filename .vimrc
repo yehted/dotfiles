@@ -1,75 +1,36 @@
-if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if (has("termguicolors"))
-    set termguicolors
-endif
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" Vundle required configuration
-set nocompatible              " required
-filetype off                  " required
+" Make sure you use single quotes
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tmhedberg/simpylfold'
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Initialize plugin system
+call plug#end()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" NERDTree toggle
+map <C-n> :NERDTreeToggle<CR>
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead
-" of Plugin)
-Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'elzr/vim-json'
-Plugin 'henrik/vim-indexed-search'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline-themes'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" My configuration
-" ------------------------------------------------------
-" Start NERDTree
-autocmd vimenter * NERDTree
-autocmd BufWritePre * :%s/\s\+$//e
-let NERDTreeIgnore = ['\.pyc$']
-
-" vim airline
-set laststatus=2
-let g:airline_theme='molokai'
-
-" set term=xterm-256color
-" Don't fold things on open
-set foldlevel=99
+" Folding
+set foldmethod=indent
+set foldcolumn=4
 
 " Turn on line numbers
 set number
+set relativenumber
 
 " Turn on mouse
 set mouse=a
 
-" Syntax highlighting
-syntax enable
-" let python_highlight_all = 1
-
-" Color scheme
+" Appearance
 set t_Co=256
-" let g:solarized_termcolors=256
-" colorscheme Tomorrow-Night-Eighties
-" set background=dark
-colorscheme molokai
-let g:molokai_original=1
-" let g:rehash256 = 1
+syntax enable
+set background=dark
+colorscheme sourcerer
 
 " Spaces and tabs
 set tabstop=4
@@ -77,12 +38,13 @@ set softtabstop=4
 set shiftwidth=4
 set textwidth=79
 set expandtab
-set autoindent
 set shiftround
 set fileformat=unix
 set backspace=indent,eol,start
 set list
 set listchars=tab:>.
+set autoindent
+filetype indent on
 
 " UI config
 set cursorline
@@ -95,4 +57,10 @@ set hlsearch
 
 " Key remaps
 nmap Y y$
-nmap <silent> <C-n> :NERDTreeToggle<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Strip trailing whitespace on save
+autocmd BufWritePre *.py :%s/\s\+$//e
