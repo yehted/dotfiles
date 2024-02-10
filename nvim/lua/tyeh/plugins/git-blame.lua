@@ -5,7 +5,7 @@ return {
 
     gitblame.setup({
       enabled = false,
-      date_formate = '%r',
+      date_format = '%r',
     })
   end,
 }
