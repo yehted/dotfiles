@@ -11,8 +11,8 @@ map("i", "jk", "<ESC>")
 
 -- debugging
 map("n", "<leader>dt", function()
-  -- require("dap-view").toggle()
-  require("dapui").toggle()
+  require("dap-view").toggle()
+  -- require("dapui").toggle()
 end, {desc = "toggle dap ui"})
 
 map("n", "<leader>db", function()

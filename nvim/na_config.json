@@ -1,0 +1,21 @@
+{
+  "aws_region": "eu-west-1",
+  "api_client_table": "admin-console-tst-clients",
+  "ddb_disabled": true,
+  "env": "local",
+  "val_env": "tst",
+  "listeners_enabled": false,
+  "kafka_config": {
+    "enabled": false,
+    "attach_request_payload": false,
+    "brokers": "",
+    "secret_name": "",
+    "region": ""
+  },
+  "transaction_spray_config": {
+    "supernet_regions": null,
+    "enabled": false
+  },
+  "secret_name": "",
+  "redis_addr": "localhost:6379"
+}
