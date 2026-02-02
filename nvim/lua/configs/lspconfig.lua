@@ -1,57 +1,26 @@
 -- EXAMPLE 
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+-- local on_attach = require("nvchad.configs.lspconfig").on_attach
+-- local on_init = require("nvchad.configs.lspconfig").on_init
+-- local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
-local servers = { "html", "cssls" }
+local servers = { "html", "cssls", "gh_actions_ls", "postgres_lsp", "ts_ls", "helm_ls", "gopls", "yamlls" }
+
+-- For nvim-ufo
+-- Option 2: nvim lsp as LSP client
+-- Tell the server the capability of foldingRange,
+-- Neovim hasn't added foldingRange to default capabilities, users must add it manually
+-- capabilities.textDocument.foldingRange = {
+--     dynamicRegistration = false,
+--     lineFoldingOnly = true
+-- }
+-- for _, ls in ipairs(servers) do
+--     require('lspconfig')[ls].setup({
+--         capabilities = capabilities
+--         -- you can add other fields for setting up lsp server in this table
+--     })
+-- end
+-- require('ufo').setup()
 
 -- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
-end
-
--- typescript
-lspconfig.ts_ls.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-}
-
-lspconfig.gopls.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    gopls = {
-      ["local"] = "github.com/validationcloud",
-      semanticTokens = true,
-      buildFlags = { "-tags=integration,tools" },
-    },
-  },
-}
-
-lspconfig.clangd.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" }
-}
-
-lspconfig.rust_analyzer.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "rust" }
-}
-
-lspconfig.graphql.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = lspconfig.util.root_pattern(".graphqlconfig", ".graphqlrc", "package.json"),
-  flags = {
-    debounce_text_changes = 150,
-  },
-})
+vim.lsp.enable(servers)
 
